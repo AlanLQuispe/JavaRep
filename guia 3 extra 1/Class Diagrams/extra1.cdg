@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="extra1">
+  <ClassDiagramComponents>
+    <Class name="GPS" package="" visibility="public" xPosition="151.0" yPosition="152.0">
+      <Fields>
+        <Field name="marca" type="String" visibility="private"/>
+        <Field name="modelo" type="String" visibility="private"/>
+        <Field name="ultimaUbicacion" type="Posicion" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="obtenerUltimaPosicion" returnType="Posicion" visibility="public"/>
+        <Method name="mover" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Posicion" package="" visibility="public" xPosition="668.0" yPosition="62.0">
+      <Fields>
+        <Field name="Latitud" type="double" visibility="private"/>
+        <Field name="Longitud" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="double" name="latittud"/>
+          <Argument type="double" name="longitud"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getLatitud" returnType="double" visibility="public"/>
+        <Method name="setLatitud" returnType="void" visibility="public">
+          <Argument type="double" name="Latitud"/>
+        </Method>
+        <Method name="getLongitud" returnType="double" visibility="public"/>
+        <Method name="setLongitud" returnType="void" visibility="public">
+          <Argument type="double" name="Longitud"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="" visibility="public" xPosition="668.0" yPosition="349.0">
+      <Fields>
+        <Field name="Nombre" type="String" visibility="private"/>
+        <Field name="Apellido" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="void" visibility="public">
+          <Argument type="String" name="Apellido"/>
+        </Method>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="ubicarme" returnType="GPS" visibility="public">
+          <Argument type="GPS" name="gps"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="tiene un" source="Persona" target="GPS" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="tiene la" source="GPS" target="Posicion" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
